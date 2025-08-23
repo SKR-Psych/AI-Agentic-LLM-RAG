@@ -28,7 +28,7 @@ python cli.py --prompt "What role does memory play in long-term agency?"
 
 $ python cli.py --prompt "How should autonomous agents manage ethical decisions?"
 
-🧠 Philosophy
+## 🧠 Philosophy
 
 This is a minimalist research-oriented project exploring how:
 
@@ -40,16 +40,16 @@ and environmental awareness
 
 can be embedded in autonomous systems, even without full-stack simulation environments or costly orchestration layers.
 
-🧾 Notebooks
+## 🧾 Notebooks
 
 See /notebooks/ for internal tests of reasoning flow and thought-chaining.
 
-📊 Benchmarks
+## 📊 Benchmarks
 
 Performance traces and tests are located in /benchmarks/.
 
-📌 Project Status
-Feature	Status
+## 📌 Project Status
+### Feature	Status
 Semantic versioning	✅
 Auto-generated modules	✅
 CLI-ready	✅
