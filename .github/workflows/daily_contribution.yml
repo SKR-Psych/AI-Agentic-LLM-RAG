@@ -1,0 +1,25 @@
+name: Daily Agentic Dev
+
+on:
+  schedule:
+    - cron: "42 7 * * *"  # random-ish time daily
+  workflow_dispatch:
+
+jobs:
+  edit-agent-code:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Run smart agent edit script
+        run: |
+          bash .agent_tools/edit_script.sh
+
+      - name: Commit and push
+        run: |
+          git config user.name "AgenticBot"
+          git config user.email "agentic@users.noreply.github.com"
+          git add .
+          git commit -F .agent_tools/commit_msg.txt || echo "Nothing to commit"
+          git push
