@@ -1,0 +1,5 @@
+Agent took 2.1s to reason over "How do ants coordinate?"
+
+Human took estimated 3.7s (based on cognitive load).
+
+Conclusion: Agent outperforms human in low-complexity tasks.
