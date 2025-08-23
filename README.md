@@ -49,16 +49,20 @@ See /notebooks/ for internal tests of reasoning flow and thought-chaining.
 
 Performance traces and tests are located in /benchmarks/.
 
+---
 ## 📌 Project Status
-### Feature	Status
-Semantic versioning	✅
-Auto-generated modules	✅
-CLI-ready	✅
-Rust backend	✅
-Continuous commits	✅
-PyPI structure	✅
-Doc generation	🔜
-Multi-agent coordination	🔜
+
+| Feature                  | Status |
+|--------------------------|--------|
+| Semantic versioning      | ✅     |
+| Auto-generated modules   | ✅     |
+| CLI-ready                | ✅     |
+| Rust backend             | ✅     |
+| Continuous commits       | ✅     |
+| PyPI structure           | ✅     |
+| Doc generation           | 🔜     |
+| Multi-agent coordination | 🔜     |
+
 ---
 ## 🛠 Dependencies
 
