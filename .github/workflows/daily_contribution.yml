@@ -2,7 +2,7 @@ name: Daily Agentic Dev
 
 on:
   schedule:
-    - cron: "42 7 * * *"  # random-ish time daily
+    - cron: "42 7 * * *"
   workflow_dispatch:
 
 jobs:
@@ -12,9 +12,19 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Run smart agent edit script
+      - name: Run smart edit
         run: |
           bash .agent_tools/edit_script.sh
+
+      - name: Auto-generate new module
+        run: |
+          if [ $((RANDOM % 4)) -eq 0 ]; then
+            bash .agent_tools/generate_module.sh
+          fi
+
+      - name: Bump semantic version
+        run: |
+          bash .agent_tools/versioning.sh
 
       - name: Commit and push
         run: |
