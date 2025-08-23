@@ -18,16 +18,17 @@ An experimental Python–Rust hybrid framework for building modular, autonomous 
 
 ---
 
-## 🧪 Quickstart
+## ⚡ Quickstart
 
 ```bash
 git clone https://github.com/SKR-Psych/AI-Agentic-LLM-RAG.git
 cd AI-Agentic-LLM-RAG
 python cli.py --prompt "What role does memory play in long-term agency?"
 
-
-$ python cli.py --prompt "How should autonomous agents manage ethical decisions?"
-
+# Example usage:
+python cli.py --prompt "How should autonomous agents manage ethical decisions?"
+```
+---
 ## 🧠 Philosophy
 
 This is a minimalist research-oriented project exploring how:
@@ -43,7 +44,7 @@ can be embedded in autonomous systems, even without full-stack simulation enviro
 ## 🧾 Notebooks
 
 See /notebooks/ for internal tests of reasoning flow and thought-chaining.
-
+---
 ## 📊 Benchmarks
 
 Performance traces and tests are located in /benchmarks/.
@@ -58,6 +59,7 @@ Continuous commits	✅
 PyPI structure	✅
 Doc generation	🔜
 Multi-agent coordination	🔜
-🛠 Dependencies
+---
+## 🛠 Dependencies
 
 No external dependencies required. Pure Python 3.10+ and optional Rust.
