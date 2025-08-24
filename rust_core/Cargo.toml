@@ -2,6 +2,45 @@
 name = "rust_core"
 version = "0.1.0"
 edition = "2021"
+description = "Core library for AI Agentic LLM RAG with advanced reasoning and memory capabilities"
+repository = "https://github.com/yourusername/AI-Agentic-LLM-RAG"
+license = "MIT OR Apache-2.0"
+authors = ["Your Name <your.email@example.com>"]
 
 [lib]
 path = "src/lib.rs"
+
+[dependencies]
+# Core dependencies
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+async-trait = "0.1.68"
+tokio = { version = "1.28", features = ["full"] }
+thiserror = "1.0.40"
+
+# Math and numerics
+ndarray = { version = "0.15", features = ["rayon", "serde"] }
+ndarray-rand = { version = "0.14.0", features = ["rand_distr"] }
+rand = "0.8.5"
+rand_distr = "0.4.3"
+
+# Async runtime
+tokio = { version = "1.28", features = ["rt-multi-thread", "sync"] }
+
+# Concurrency
+parking_lot = "0.12.1"  # More efficient synchronization primitives
+
+# Optional: For mathematical expression evaluation in the calculator tool
+evalexpr = { version = "8.0.0", optional = true }
+
+# Logging
+tracing = "0.1.37"
+tracing-subscriber = { version = "0.3.17", features = ["env-filter"] }
+
+[dev-dependencies]
+tokio-test = "0.4.3"
+rstest = "0.17.0"
+
+[features]
+default = ["calculator"]
+calculator = ["dep:evalexpr"]
