@@ -27,6 +27,14 @@ for i in $(seq 1 $count); do
   # Generate random function name (e.g. auto_fn_98523_49383)
   fn_name="auto_fn_$(date +%s | cut -c6-)_$RANDOM"
 
-  # Python logic
+  # Append a fake function based on file type
   if [[ $file == *.py ]]; then
-    {
+    echo -e "\n# Auto-generated Python function\n\ndef $fn_name():\n    pass\n" >> "$file"
+  elif [[ $file == *.rs ]]; then
+    echo -e "\n// Auto-generated Rust function\n\nfn $fn_name() {\n    // todo\n}\n" >> "$file"
+  fi
+done
+
+# Write commit message for downstream steps
+commit_type=${commit_types[$RANDOM % ${#commit_types[@]}]}
+echo "$commit_type: 🤖 Edited ${#selected_files[@]} files (auto)" > .agent_tools/commit_msg.txt
