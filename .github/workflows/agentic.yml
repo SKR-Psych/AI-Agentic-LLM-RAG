@@ -1,0 +1,70 @@
+name: 🤖 Daily Agentic Activity
+
+on:
+  schedule:
+    - cron: "0 0,3,6,9,12,15 * * *"  # Every 3 hours = 8 runs/day max
+  workflow_dispatch:  # Optional manual trigger
+
+jobs:
+  edit-code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: 🔧 Set up Git Config
+        run: |
+          git config --global user.email "agent@llmrag.com"
+          git config --global user.name "Agentic Commit Bot"
+
+      - name: 🧠 Run Edit Script
+        run: |
+          bash .agent_tools/edit_script.sh || true
+
+      - name: 📦 Run Versioning
+        run: |
+          bash .agent_tools/versioning.sh || true
+
+      - name: 📤 Commit & Push Changes
+        run: |
+          git add .
+          git diff --quiet && echo "No changes" && exit 0
+          git commit -F .agent_tools/commit_msg.txt || echo "No commit msg"
+          git push
+
+  generate-module:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: 🎲 Random Skip (20% chance to run)
+        id: skip
+        run: |
+          CHANCE=$(( RANDOM % 10 ))
+          if [ "$CHANCE" -ge 2 ]; then
+            echo "Skipped (CHANCE=$CHANCE)"
+            echo "skip=true" >> $GITHUB_OUTPUT
+          else
+            echo "Running (CHANCE=$CHANCE)"
+            echo "skip=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: 🔧 Set up Git Config
+        if: steps.skip.outputs.skip == 'false'
+        run: |
+          git config --global user.email "agent@llmrag.com"
+          git config --global user.name "Agentic Commit Bot"
+
+      - name: 🧱 Generate New Module
+        if: steps.skip.outputs.skip == 'false'
+        run: |
+          bash .agent_tools/generate_module.sh
+
+      - name: 📦 Commit & Push Changes
+        if: steps.skip.outputs.skip == 'false'
+        run: |
+          git add .
+          git diff --quiet && echo "No changes" && exit 0
+          git commit -m "🤖 Auto-generated agent/tool module"
+          git push
