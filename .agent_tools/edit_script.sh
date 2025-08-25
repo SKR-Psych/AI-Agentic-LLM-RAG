@@ -1,19 +1,22 @@
 #!/bin/bash
 
-# 🎲 60% chance to skip this run
-if [ $((RANDOM % 10)) -lt 6 ]; then
-  echo "🎲 Skipping this run (random chance)"
+# 10% chance to skip this run
+if [ $((RANDOM % 10)) -lt 1 ]; then
+  echo " Skipping this run (random chance)"
   exit 0
 fi
 
-# 🔍 Files eligible for editing
-FILES=(
-  "ai_agentic_core/reasoning_engine.py"
-  "ai_agentic_core/memory_manager.py"
-  "ai_agentic_core/action_scheduler.py"
-  "rust_core/src/agent.rs"
-  "rust_core/src/memory.rs"
-)
+# Protected files and directories
+EXCLUDE_PATTERN="^\.agent_tools/|^\.github/|VERSION\.txt|setup\.py|pyproject\.toml|cli\.py"
+
+# Find all Python and Rust files that are not in protected locations
+FILES=()
+while IFS= read -r -d $'\0' file; do
+  # Skip files matching exclude pattern
+  if [[ ! "$file" =~ $EXCLUDE_PATTERN ]]; then
+    FILES+=("$file")
+  fi
+done < <(find . -type f \( -name "*.py" -o -name "*.rs" \) -not -path "*/\.*" -print0)
 
 commit_types=("refactor" "feature" "docs" "fix")
 count=$(( (RANDOM % 3) + 1 ))  # edit 1–3 files

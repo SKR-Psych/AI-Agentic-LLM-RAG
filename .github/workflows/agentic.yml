@@ -38,16 +38,16 @@ jobs:
       - name: 📥 Checkout Repo
         uses: actions/checkout@v3
 
-      - name: 🎲 Random Skip (20% chance to run)
+      - name: 🎲 Random Skip (35% chance to skip)
         id: skip
         run: |
-          CHANCE=$(( RANDOM % 10 ))
-          if [ "$CHANCE" -ge 2 ]; then
-            echo "Skipped (CHANCE=$CHANCE)"
-            echo "skip=true" >> $GITHUB_OUTPUT
-          else
+          CHANCE=$(( RANDOM % 100 ))
+          if [ "$CHANCE" -lt 65 ]; then  # 65% chance to run (35% to skip)
             echo "Running (CHANCE=$CHANCE)"
             echo "skip=false" >> $GITHUB_OUTPUT
+          else
+            echo "Skipped (CHANCE=$CHANCE)"
+            echo "skip=true" >> $GITHUB_OUTPUT
           fi
 
       - name: 🔧 Set up Git Config
