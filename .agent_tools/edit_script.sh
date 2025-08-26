@@ -2,24 +2,24 @@
 
 # 10% chance to skip this run
 if [ $((RANDOM % 10)) -lt 1 ]; then
-  echo " Skipping this run (random chance)"
+  echo "⏭️ Skipping this run (random chance)"
   exit 0
 fi
 
-# Protected files and directories
+# 🛡️ Protected files and directories
 EXCLUDE_PATTERN="^\.agent_tools/|^\.github/|VERSION\.txt|setup\.py|pyproject\.toml|cli\.py"
 
-# Find all Python and Rust files that are not in protected locations
+# 🔍 Find all Python and Rust files that are not in protected locations
 FILES=()
 while IFS= read -r -d $'\0' file; do
-  # Skip files matching exclude pattern
   if [[ ! "$file" =~ $EXCLUDE_PATTERN ]]; then
     FILES+=("$file")
   fi
 done < <(find . -type f \( -name "*.py" -o -name "*.rs" \) -not -path "*/\.*" -print0)
 
+# 🧠 Randomly select and modify 1–3 files
 commit_types=("refactor" "feature" "docs" "fix")
-count=$(( (RANDOM % 3) + 1 ))  # edit 1–3 files
+count=$(( (RANDOM % 3) + 1 ))
 selected_files=()
 
 for i in $(seq 1 $count); do
@@ -27,10 +27,8 @@ for i in $(seq 1 $count); do
   file=${FILES[$index]}
   selected_files+=("$file")
 
-  # Generate random function name (e.g. auto_fn_98523_49383)
   fn_name="auto_fn_$(date +%s | cut -c6-)_$RANDOM"
 
-  # Append a fake function based on file type
   if [[ $file == *.py ]]; then
     echo -e "\n# Auto-generated Python function\n\ndef $fn_name():\n    pass\n" >> "$file"
   elif [[ $file == *.rs ]]; then
@@ -38,6 +36,18 @@ for i in $(seq 1 $count); do
   fi
 done
 
-# Write commit message for downstream steps
-commit_type=${commit_types[$RANDOM % ${#commit_types[@]}]}
-echo "$commit_type: 🤖 Edited ${#selected_files[@]} files (auto)" > .agent_tools/commit_msg.txt
+# 📝 Git add, commit, and push if there are changes
+sync
+git add --intent-to-add .
+
+if git diff --cached --quiet; then
+  echo "⚠No changes to commit."
+else
+  git config --global user.name "AgenticBot"
+  git config --global user.email "agent@llmrag.com"
+
+  commit_type=${commit_types[$RANDOM % ${#commit_types[@]}]}
+  git commit -m "$commit_type: 🤖 Edited ${#selected_files[@]} files (auto)"
+  git push origin main
+  echo "✅ Pushed auto-edit commit"
+fi
