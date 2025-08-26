@@ -55,7 +55,7 @@ fi
 
 # 💾 Git commit and push
 git config --global user.name "Sami Rahman"
-git config --global user.email "sami@yourdomain.com"
+git config --global user.email "sami.rahman@llmorg.uk"
 
 sync
 git add --intent-to-add .
