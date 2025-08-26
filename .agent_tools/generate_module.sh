@@ -36,8 +36,8 @@ git add "$filepath"
 if git diff --cached --quiet; then
     echo "⚠️ No changes to commit."
 else
-    git config --global user.name "AgenticBot"
-    git config --global user.email "agent@llmrag.com"
+    git config --global user.name "Sami Rahman"
+    git config --global user.email "sami.rahman@llmorg.uk"
 
     git commit -m "Auto-generated module: $filename_snake"
     git push origin main
