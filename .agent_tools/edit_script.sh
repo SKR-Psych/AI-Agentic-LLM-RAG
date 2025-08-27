@@ -18,12 +18,14 @@ commit_types=("refactor" "improvement" "docs" "minor")
 count=$(( (RANDOM % 8) + 1 ))
 selected_files=()
 
+# 🔤 Generate realistic function names
 generate_fn_name() {
   prefixes=("check" "update" "refresh" "calculate" "log" "fetch" "build" "init")
   suffixes=("data" "state" "session" "cache" "timeout" "payload" "config")
   echo "${prefixes[$RANDOM % ${#prefixes[@]}]}_${suffixes[$RANDOM % ${#suffixes[@]}]}"
 }
 
+# 🛠️ Modify random files
 for i in $(seq 1 $count); do
   index=$((RANDOM % ${#FILES[@]}))
   file=${FILES[$index]}
@@ -44,9 +46,28 @@ for i in $(seq 1 $count); do
   fi
 done
 
+# 🧾 Exit if no changes occurred
 if [ ${#selected_files[@]} -eq 0 ]; then
   echo "No files were edited. Exiting."
   exit 0
 fi
 
+# 💾 Git commit and push
+git config --global user.name "Sami Rahman"
+git config --global user.email "sami.rahman@llmorg.uk"
 
+sync
+git add --intent-to-add .
+
+if git diff --cached --quiet; then
+  echo "No staged changes to commit."
+else
+  commit_type=${commit_types[$RANDOM % ${#commit_types[@]}]}
+  commit_msg="$commit_type: small updates to ${#selected_files[@]} files"
+
+  echo "$commit_msg" > .agent_tools/commit_msg.txt  # ✅ Needed for versioning
+
+  git commit -m "$commit_msg"
+  git push origin main
+  echo "✅ Committed: $commit_msg"
+fi
