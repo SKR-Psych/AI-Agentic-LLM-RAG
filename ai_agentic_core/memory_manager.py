@@ -239,3 +239,9 @@ def update_data():
     # TODO: logic pending
     pass
 
+
+
+def build_config():
+    # TODO: logic pending
+    pass
+
