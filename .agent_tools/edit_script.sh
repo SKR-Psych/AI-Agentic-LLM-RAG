@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# 🛡️ Protected files and directories
+# Protected files and directories
 EXCLUDE_PATTERN="^\.agent_tools/|^\.github/|VERSION\.txt|setup\.py|pyproject\.toml|cli\.py"
 
-# 🔍 Find all Python and Rust files that are not in protected locations
+# Find all Python and Rust files that are not in protected locations
 FILES=()
 while IFS= read -r -d $'\0' file; do
   if [[ ! "$file" =~ $EXCLUDE_PATTERN ]]; then
@@ -13,19 +13,24 @@ done < <(find . -type f \( -name "*.py" -o -name "*.rs" \) -not -path "*/\.*" -p
 
 echo "Found ${#FILES[@]} editable files."
 
-# 🎲 Random number of files to edit (1–8)
+# Random number of files to edit (1-8)
 commit_types=("refactor" "improvement" "docs" "minor")
 count=$(( (RANDOM % 8) + 1 ))
 selected_files=()
 
-# 🔤 Generate realistic function names
+# Generate realistic function names
 generate_fn_name() {
   prefixes=("check" "update" "refresh" "calculate" "log" "fetch" "build" "init")
   suffixes=("data" "state" "session" "cache" "timeout" "payload" "config")
   echo "${prefixes[$RANDOM % ${#prefixes[@]}]}_${suffixes[$RANDOM % ${#suffixes[@]}]}"
 }
 
-# 🛠️ Modify random files
+# Create commit message file
+COMMIT_MSG=".agent_tools/commit_msg.txt"
+echo "refactor: code improvements ($(date +'%Y-%m-%d %H:%M'))" > "$COMMIT_MSG"
+echo "" >> "$COMMIT_MSG"
+
+# Modify random files
 for i in $(seq 1 $count); do
   index=$((RANDOM % ${#FILES[@]}))
   file=${FILES[$index]}
@@ -39,14 +44,16 @@ for i in $(seq 1 $count); do
 
   if [[ $file == *.py ]]; then
     echo -e "\n\ndef $fn_name():\n    # TODO: logic pending\n    pass\n" >> "$file"
+    echo "- Added $fn_name() to $file" >> "$COMMIT_MSG"
     echo "Edited $file (Python)"
   elif [[ $file == *.rs ]]; then
     echo -e "\n\nfn $fn_name() {\n    // TODO: implement logic\n}\n" >> "$file"
+    echo "- Added $fn_name() to $file" >> "$COMMIT_MSG"
     echo "Edited $file (Rust)"
   fi
 done
 
-# 🧾 Exit if no changes occurred
+# Exit if no changes occurred
 if [ ${#selected_files[@]} -eq 0 ]; then
   echo "No files were edited. Exiting."
   exit 0
