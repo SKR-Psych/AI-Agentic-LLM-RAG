@@ -11,3 +11,9 @@ class Module12160:
     def execute_task(self, task: str):
         \"\"\"Execute a named task passed in as a string.\"\"\"
         print(f"Executing: {task}")
+
+
+def log_config():
+    # TODO: logic pending
+    pass
+

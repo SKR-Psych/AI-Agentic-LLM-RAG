@@ -396,3 +396,9 @@ mod tests {
         assert_eq!(results[0].0.content, "Memory 1");
     }
 }
+
+
+fn fetch_cache() {
+    // TODO: implement logic
+}
+

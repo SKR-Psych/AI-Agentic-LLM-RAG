@@ -233,3 +233,9 @@ class MemoryManager:
         except Exception as e:
             print(f"Error loading memories: {e}")
             return cls()  # Return new manager if loading fails
+
+
+def update_data():
+    # TODO: logic pending
+    pass
+
