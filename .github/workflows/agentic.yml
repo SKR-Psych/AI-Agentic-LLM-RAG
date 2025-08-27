@@ -288,6 +288,10 @@ jobs:
           
           git config --global user.email "agent@llmrag.com"
           git config --global user.name "Agentic Commit Bot"
+          
+          # Pull latest changes before committing
+          git pull origin main --rebase
+          
           git add benchmarks/performance/
           git commit -m "perf: update performance metrics and analysis"
           git push origin main
@@ -343,6 +347,12 @@ jobs:
           *Generated on $(date)*
           EOF
           
+          git config --global user.email "agent@llmrag.com"
+          git config --global user.name "Agentic Commit Bot"
+          
+          # Pull latest changes before committing
+          git pull origin main --rebase
+          
           git add research/
           git commit -m "research: add findings on $TOPIC"
           git push origin main
@@ -390,6 +400,10 @@ jobs:
           
           git config --global user.email "agent@llmrag.com"
           git config --global user.name "Agentic Commit Bot"
+          
+          # Pull latest changes before committing
+          git pull origin main --rebase
+          
           git add docs/development/
           git commit -m "docs: update development timeline and milestones"
           git push origin main
