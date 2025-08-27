@@ -30,6 +30,9 @@ from enum import Enum
 
 from ai_agentic_core.reasoning_engine import ReasoningEngine, ReasoningMode
 from ai_agentic_core.memory_manager import MemoryManager
+from ai_agentic_core.memory_analyzer import MemoryAnalyzer
+from ai_agentic_core.profiler import PerformanceProfiler
+from ai_agentic_core.code_analyzer import CodeAnalyzer
 
 class OutputFormat(str, Enum):
     TEXT = "text"
@@ -168,6 +171,11 @@ def main():
         action="append", 
         help="Additional parameters as key=value pairs"
     )
+
+    # Memory analysis, profiling, and code analysis arguments
+    parser.add_argument("--memory-analysis", action="store_true", help="Run memory analysis")
+    parser.add_argument("--profile", help="Profile a specific function or file")
+    parser.add_argument("--code-quality", help="Analyze code quality of a file or directory")
     
     args = parser.parse_args()
     
