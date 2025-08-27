@@ -268,7 +268,7 @@ jobs:
           mkdir -p benchmarks/performance
           
           # Create realistic performance data
-          cat > "benchmarks/performance/metrics_$(date +%s).json" << EOF
+          cat > "benchmarks/performance/metrics_$(date +%s).json" << 'EOF'
           {
             "timestamp": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
             "metrics": {
@@ -279,13 +279,15 @@ jobs:
               "gpu_utilization": $((60 + RANDOM % 40))
             },
             "improvements": [
-              "Reduced memory footprint by ${RANDOM % 25}%",
-              "Improved inference speed by ${RANDOM % 30}%",
-              "Enhanced accuracy by ${RANDOM % 10}%"
+              "Reduced memory footprint by $((RANDOM % 25))%",
+              "Improved inference speed by $((RANDOM % 30))%",
+              "Enhanced accuracy by $((RANDOM % 10))%"
             ]
           }
           EOF
           
+          git config --global user.email "agent@llmrag.com"
+          git config --global user.name "Agentic Commit Bot"
           git add benchmarks/performance/
           git commit -m "perf: update performance metrics and analysis"
           git push origin main
@@ -316,7 +318,7 @@ jobs:
           TOPIC=${RESEARCH_TOPICS[$RANDOM % ${#RESEARCH_TOPICS[@]}]}
           FILENAME="research/$(echo $TOPIC | tr ' ' '_' | tr '[:upper:]' '[:lower:]')_$(date +%s).md"
           
-          cat > "$FILENAME" << EOF
+          cat > "$FILENAME" << 'EOF'
           # $TOPIC
           
           ## Abstract
@@ -331,7 +333,7 @@ jobs:
           Advanced neural architectures with attention mechanisms.
           
           ## Results
-          Achieved ${RANDOM % 40 + 60}% improvement over baseline.
+          Achieved $((RANDOM % 40 + 60))% improvement over baseline.
           
           ## Future Work
           - Scale to larger models
@@ -361,7 +363,7 @@ jobs:
           mkdir -p docs/development/
           
           # Generate realistic development timeline
-          cat > "docs/development/timeline_$(date +%Y-%m).md" << EOF
+          cat > "docs/development/timeline_$(date +%Y-%m).md" << 'EOF'
           # Development Timeline - $(date +%B %Y)
           
           ## Week $(date +%U)
@@ -386,6 +388,8 @@ jobs:
           *Last updated: $(date)*
           EOF
           
+          git config --global user.email "agent@llmrag.com"
+          git config --global user.name "Agentic Commit Bot"
           git add docs/development/
           git commit -m "docs: update development timeline and milestones"
           git push origin main
