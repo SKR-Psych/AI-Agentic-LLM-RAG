@@ -320,3 +320,9 @@ def log_payload():
     # TODO: logic pending
     pass
 
+
+
+def init_session():
+    # TODO: logic pending
+    pass
+

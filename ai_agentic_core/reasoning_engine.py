@@ -177,3 +177,9 @@ def log_config():
     # TODO: logic pending
     pass
 
+
+
+def init_data():
+    # TODO: logic pending
+    pass
+

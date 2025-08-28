@@ -34,3 +34,9 @@ fn log_config() {
     // TODO: implement logic
 }
 
+
+
+fn log_session() {
+    // TODO: implement logic
+}
+
