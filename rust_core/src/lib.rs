@@ -28,3 +28,9 @@ fn calculate_config() {
     // TODO: implement logic
 }
 
+
+
+fn log_config() {
+    // TODO: implement logic
+}
+

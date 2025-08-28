@@ -314,3 +314,9 @@ def log_timeout():
     # TODO: logic pending
     pass
 
+
+
+def log_payload():
+    # TODO: logic pending
+    pass
+

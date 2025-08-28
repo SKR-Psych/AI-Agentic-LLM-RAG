@@ -11,3 +11,9 @@ def log_session():
     # TODO: logic pending
     pass
 
+
+
+def log_cache():
+    # TODO: logic pending
+    pass
+

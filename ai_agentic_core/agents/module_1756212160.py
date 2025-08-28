@@ -29,3 +29,9 @@ def check_payload():
     # TODO: logic pending
     pass
 
+
+
+def refresh_state():
+    # TODO: logic pending
+    pass
+
