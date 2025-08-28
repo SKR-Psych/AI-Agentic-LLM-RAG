@@ -150,17 +150,6 @@ analyzer = CodeAnalyzer()
 project_analysis = analyzer.analyze_project()
 print(json.dumps(project_analysis, indent=2))
 
-
-def check_config():
-    # TODO: logic pending
-    pass
-
-
-
-def update_cache():
-    # TODO: logic pending
-    pass
-
 #LOL
 def compute_cosine_similarity(a, b):
     """Compute cosine similarity between two vectors."""
