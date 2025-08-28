@@ -159,27 +159,3 @@ class ReasoningEngine:
     def clear_history(self) -> None:
         """Clear reasoning history"""
         self.history = []
-
-
-def update_cache():
-    # TODO: logic pending
-    pass
-
-
-
-def build_timeout():
-    # TODO: logic pending
-    pass
-
-
-
-def log_config():
-    # TODO: logic pending
-    pass
-
-
-
-def init_data():
-    # TODO: logic pending
-    pass
-
