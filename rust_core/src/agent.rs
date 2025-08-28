@@ -832,3 +832,9 @@ pub async fn simulate_reasoning(input: &str) -> String {
         Err(e) => format!("Error: {}", e),
     }
 }
+
+
+fn calculate_payload() {
+    // TODO: implement logic
+}
+

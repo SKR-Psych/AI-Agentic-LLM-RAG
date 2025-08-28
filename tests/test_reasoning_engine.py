@@ -10,3 +10,9 @@ def init_session():
     # TODO: logic pending
     pass
 
+
+
+def fetch_session():
+    # TODO: logic pending
+    pass
+

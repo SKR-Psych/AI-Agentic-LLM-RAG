@@ -171,3 +171,9 @@ def build_timeout():
     # TODO: logic pending
     pass
 
+
+
+def log_config():
+    # TODO: logic pending
+    pass
+
