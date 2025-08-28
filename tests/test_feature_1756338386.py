@@ -5,3 +5,9 @@ def init_state():
     # TODO: logic pending
     pass
 
+
+
+def log_session():
+    # TODO: logic pending
+    pass
+

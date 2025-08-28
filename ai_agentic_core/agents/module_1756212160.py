@@ -23,3 +23,9 @@ def init_cache():
     # TODO: logic pending
     pass
 
+
+
+def check_payload():
+    # TODO: logic pending
+    pass
+
