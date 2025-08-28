@@ -17,3 +17,9 @@ def check_session():
     # TODO: logic pending
     pass
 
+
+
+def refresh_state():
+    # TODO: logic pending
+    pass
+

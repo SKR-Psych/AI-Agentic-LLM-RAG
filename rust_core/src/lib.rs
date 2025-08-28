@@ -22,3 +22,9 @@ pub mod prelude {
         Tool, ReasoningEngine, TransformerEngine, TransformerConfig,
     };
 }
+
+
+fn calculate_config() {
+    // TODO: implement logic
+}
+

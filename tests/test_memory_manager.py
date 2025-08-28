@@ -10,3 +10,9 @@ def refresh_data():
     # TODO: logic pending
     pass
 
+
+
+def build_data():
+    # TODO: logic pending
+    pass
+
