@@ -119,18 +119,6 @@ class MemoryAnalyzer:
         except Exception as e:
             return f"Error generating report: {e}"
 
-
-def update_config():
-    # TODO: logic pending
-    pass
-
-
-
-def init_cache():
-    # TODO: logic pending
-    pass
-
-
 def self_reflection_loop(initial_response, max_iterations=3):
     """Implement self-reflection for response improvement."""
     current_response = initial_response
