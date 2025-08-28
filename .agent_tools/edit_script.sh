@@ -29,7 +29,7 @@ selected_files=()
 generate_fn_name() {
   prefixes=("check" "update" "refresh" "calculate" "log" "fetch" "build" "init")
   suffixes=("data" "state" "session" "cache" "timeout" "payload" "config")
-  echo "${prefixes[$RANDOM % ${#prefixes[@]}]}_${suffixes[$RANDOM % ${#suffixes[@]}]}"
+  echo "${prefixes[$RANDOM % ${#prefixes[@]}]}_${suffixes[$RANDOM % ${#prefixes[@]}]}"
 }
 
 # Create commit message file
@@ -82,11 +82,15 @@ if [ ${#selected_files[@]} -eq 0 ]; then
   exit 0
 fi
 
-# 💾# Only proceed if we made changes
+# Only proceed if we made changes
 if [ ${#selected_files[@]} -gt 0 ]; then
     # Configure git if not already configured
     git config --global user.name "Agentic Bot"
     git config --global user.email "agent@llmrag.com"
+    
+    # CRITICAL FIX: Pull latest changes before committing
+    echo "Pulling latest changes..."
+    git pull origin main --rebase || git pull origin main --no-rebase
     
     # Add all changes
     git add .
@@ -95,7 +99,19 @@ if [ ${#selected_files[@]} -gt 0 ]; then
     if ! git diff --cached --quiet; then
         echo "Committing changes..."
         git commit -F "$COMMIT_MSG" || echo "Failed to commit changes"
-        git push origin main || echo "Failed to push changes"
+        
+        # Try to push with retry logic
+        echo "Pushing changes..."
+        for attempt in 1 2 3; do
+            if git push origin main; then
+                echo "Successfully pushed on attempt $attempt"
+                break
+            else
+                echo "Push failed on attempt $attempt, pulling and retrying..."
+                git pull origin main --rebase || git pull origin main --no-rebase
+                sleep 2
+            fi
+        done
     else
         echo "No changes to commit"
     fi

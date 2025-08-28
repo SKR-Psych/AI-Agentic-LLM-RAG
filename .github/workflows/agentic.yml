@@ -46,18 +46,8 @@ jobs:
         run: |
           bash .agent_tools/edit_script.sh || true
 
-      - name: Commit Changes
-        run: |
-          git add .
-          if ! git diff --cached --quiet; then
-            git commit -m "Auto-edit: $(date +'%Y-%m-%d %H:%M')" || echo "Commit failed"
-            git push origin main || echo "Push failed"
-          else
-            echo "No changes to commit"
-          fi
-
   generate-module:
-    needs: should-run
+    needs: edit-code  # Wait for edit-code to complete
     if: needs.should-run.outputs.should_run == 'true'
     runs-on: ubuntu-latest
     permissions:
@@ -77,18 +67,8 @@ jobs:
         run: |
           bash .agent_tools/generate_module.sh
 
-      - name: Commit Changes
-        run: |
-          git add .
-          if ! git diff --cached --quiet; then
-            git commit -m "Auto-generated module"
-            git push origin main || echo "Push failed"
-          else
-            echo "No changes to commit"
-          fi
-
   generate-benchmarks:
-    needs: should-run
+    needs: generate-module  # Wait for generate-module
     if: needs.should-run.outputs.should_run == 'true'
     runs-on: ubuntu-latest
     permissions:
@@ -115,7 +95,7 @@ jobs:
           fi
 
   generate-notebooks:
-    needs: should-run
+    needs: generate-benchmarks  # Wait for generate-benchmarks
     if: needs.should-run.outputs.should_run == 'true'
     runs-on: ubuntu-latest
     permissions:
@@ -139,7 +119,7 @@ jobs:
           fi
 
   generate-rust:
-    needs: should-run
+    needs: generate-notebooks  # Wait for generate-notebooks
     if: needs.should-run.outputs.should_run == 'true'
     runs-on: ubuntu-latest
     permissions:
@@ -165,7 +145,7 @@ jobs:
           fi
 
   generate-tests:
-    needs: should-run
+    needs: generate-rust  # Wait for generate-rust
     if: needs.should-run.outputs.should_run == 'true'
     runs-on: ubuntu-latest
     permissions:
@@ -254,7 +234,7 @@ jobs:
           fi
 
   performance-analysis:
-    needs: should-run
+    needs: generate-tests  # Wait for all basic jobs
     if: needs.should-run.outputs.should_run == 'true'
     runs-on: ubuntu-latest
     permissions:
@@ -297,7 +277,7 @@ jobs:
           git push origin main
 
   research-updates:
-    needs: should-run
+    needs: performance-analysis  # Wait for performance-analysis
     if: needs.should-run.outputs.should_run == 'true'
     runs-on: ubuntu-latest
     permissions:
@@ -358,7 +338,7 @@ jobs:
           git push origin main
 
   development-timeline:
-    needs: should-run
+    needs: research-updates  # Wait for research-updates
     if: needs.should-run.outputs.should_run == 'true'
     runs-on: ubuntu-latest
     permissions:
