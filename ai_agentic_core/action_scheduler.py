@@ -308,27 +308,3 @@ class ActionScheduler:
             for t in self.scheduled_tasks.values()
             if tag in t.tags
         ]
-
-
-def log_timeout():
-    # TODO: logic pending
-    pass
-
-
-
-def log_payload():
-    # TODO: logic pending
-    pass
-
-
-
-def init_session():
-    # TODO: logic pending
-    pass
-
-
-
-def refresh_timeout():
-    # TODO: logic pending
-    pass
-
