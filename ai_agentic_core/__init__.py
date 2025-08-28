@@ -22,3 +22,9 @@ def log_():
     # TODO: logic pending
     pass
 
+
+
+def init_config():
+    # TODO: logic pending
+    pass
+

@@ -5,3 +5,9 @@ def check_timeout():
     # TODO: logic pending
     pass
 
+
+
+def update_timeout():
+    # TODO: logic pending
+    pass
+

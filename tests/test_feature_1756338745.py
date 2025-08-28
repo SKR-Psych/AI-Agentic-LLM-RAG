@@ -11,3 +11,9 @@ def update_config():
     # TODO: logic pending
     pass
 
+
+
+def calculate_session():
+    # TODO: logic pending
+    pass
+

@@ -153,3 +153,9 @@ def fetch_cache():
     # TODO: logic pending
     pass
 
+
+
+def fetch_config():
+    # TODO: logic pending
+    pass
+
