@@ -326,3 +326,9 @@ def init_session():
     # TODO: logic pending
     pass
 
+
+
+def refresh_timeout():
+    # TODO: logic pending
+    pass
+

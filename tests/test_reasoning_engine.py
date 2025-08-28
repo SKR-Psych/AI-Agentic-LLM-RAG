@@ -16,3 +16,9 @@ def fetch_session():
     # TODO: logic pending
     pass
 
+
+
+def log_timeout():
+    # TODO: logic pending
+    pass
+

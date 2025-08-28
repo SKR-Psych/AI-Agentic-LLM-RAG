@@ -16,3 +16,9 @@ def build_config():
     # TODO: logic pending
     pass
 
+
+
+def log_():
+    # TODO: logic pending
+    pass
+

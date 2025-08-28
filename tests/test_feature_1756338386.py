@@ -17,3 +17,9 @@ def log_cache():
     # TODO: logic pending
     pass
 
+
+
+def fetch_cache():
+    # TODO: logic pending
+    pass
+
