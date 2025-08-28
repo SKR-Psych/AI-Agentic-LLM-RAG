@@ -129,3 +129,9 @@ def slow_function():
 # Benchmark the function
 result = profiler.benchmark_function(slow_function, iterations=10)
 print(json.dumps(result, indent=2))
+
+
+def fetch_data():
+    # TODO: logic pending
+    pass
+
