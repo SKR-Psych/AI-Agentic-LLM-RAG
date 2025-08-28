@@ -141,3 +141,9 @@ def calculate_():
     # TODO: logic pending
     pass
 
+
+
+def build_state():
+    # TODO: logic pending
+    pass
+

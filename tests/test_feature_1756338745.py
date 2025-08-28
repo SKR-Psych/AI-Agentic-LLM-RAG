@@ -5,3 +5,9 @@ def log_timeout():
     # TODO: logic pending
     pass
 
+
+
+def update_config():
+    # TODO: logic pending
+    pass
+

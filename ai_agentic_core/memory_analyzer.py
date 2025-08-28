@@ -118,3 +118,9 @@ class MemoryAnalyzer:
             return filename
         except Exception as e:
             return f"Error generating report: {e}"
+
+
+def update_config():
+    # TODO: logic pending
+    pass
+

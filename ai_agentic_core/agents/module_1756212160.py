@@ -17,3 +17,9 @@ def log_config():
     # TODO: logic pending
     pass
 
+
+
+def init_cache():
+    # TODO: logic pending
+    pass
+
