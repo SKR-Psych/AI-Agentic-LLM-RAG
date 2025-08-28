@@ -129,3 +129,11 @@ def slow_function():
 # Benchmark the function
 result = profiler.benchmark_function(slow_function, iterations=10)
 print(json.dumps(result, indent=2))
+
+def compute_memory_retrieval_score(query, memory):
+    """Compute retrieval score for memory search."""
+    query_embedding = self.encode_query(query)
+    memory_embedding = memory.embedding
+    similarity = torch.cosine_similarity(query_embedding, memory_embedding, dim=0)
+    return similarity * memory.importance
+
