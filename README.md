@@ -2,7 +2,6 @@
 
 An experimental Python–Rust hybrid framework for building modular, autonomous agents using reasoning-first design principles.
 
-> Developed by a rotating group of contributors investigating the capabilities, limitations, and coordination strategies of large language models in open environments.
 
 ---
 

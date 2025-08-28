@@ -23,3 +23,6 @@ def refresh_state():
     # TODO: logic pending
     pass
 
+def refresh_state2():
+    # TODO: logic pending
+    pass
