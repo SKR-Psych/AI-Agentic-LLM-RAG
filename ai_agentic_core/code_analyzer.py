@@ -149,3 +149,9 @@ class CodeAnalyzer:
 analyzer = CodeAnalyzer()
 project_analysis = analyzer.analyze_project()
 print(json.dumps(project_analysis, indent=2))
+
+
+def check_config():
+    # TODO: logic pending
+    pass
+

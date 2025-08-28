@@ -4,3 +4,9 @@ def test_store_and_recall():
     memory = MemoryManager()
     memory.store("language", "Python")
     assert memory.recall("language") == "Python"
+
+
+def refresh_data():
+    # TODO: logic pending
+    pass
+

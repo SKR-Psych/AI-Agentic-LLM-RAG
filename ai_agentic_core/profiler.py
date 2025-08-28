@@ -135,3 +135,9 @@ def fetch_data():
     # TODO: logic pending
     pass
 
+
+
+def calculate_():
+    # TODO: logic pending
+    pass
+
