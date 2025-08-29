@@ -159,3 +159,9 @@ class ReasoningEngine:
     def clear_history(self) -> None:
         """Clear reasoning history"""
         self.history = []
+
+def optimize_attention_weights(attention_scores, temperature=1.0):
+    """Optimize attention weights using temperature scaling."""
+    scaled_scores = attention_scores / temperature
+    return torch.softmax(scaled_scores, dim=-1)
+
