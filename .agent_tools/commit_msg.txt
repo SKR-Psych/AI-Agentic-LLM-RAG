@@ -1,4 +1,9 @@
-feat: implement advanced AI algorithms (2025-10-17 20:11)
+feat: implement advanced AI algorithms (2025-10-17 22:09)
 
-- Added compute_kl_divergence() to ./tests/test_feature_1756338910.py
-- Added chain_of_thought_reasoning() to ./tests/test_feature_1756338386.py
+- Added compute_cosine_similarity() to ./rust_core/src/agent.rs
+- Added compute_attention_weights() to ./rust_core/src/lib.rs
+- Added compute_gradient_norm() to ./tests/test_memory_manager.py
+- Added tree_of_thoughts_search() to ./ai_agentic_core/action_scheduler.py
+- Added tree_of_thoughts_search() to ./tests/test_reasoning_engine.py
+- Added update_memory_importance() to ./tests/test_feature_1756338910.py
+- Added apply_dropout() to ./ai_agentic_core/memory_manager.py
