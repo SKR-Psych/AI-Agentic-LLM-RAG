@@ -1,4 +1,6 @@
-feat: implement advanced AI algorithms (2025-10-30 09:41)
+feat: implement advanced AI algorithms (2025-10-30 10:11)
 
-- Added compute_bleu_score() to ./tests/test_memory_manager.py
-- Added chain_of_thought_reasoning() to ./ai_agentic_core/code_analyzer.py
+- Added compute_attention_weights() to ./rust_core/src/agent.rs
+- Added update_memory_importance() to ./ai_agentic_core/action_scheduler.py
+- Added compute_kl_divergence() to ./ai_agentic_core/profiler.py
+- Added update_memory_importance() to ./tests/test_memory_manager.py
