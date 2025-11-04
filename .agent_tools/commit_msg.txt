@@ -1,3 +1,6 @@
-feat: implement advanced AI algorithms (2025-11-04 00:51)
+feat: implement advanced AI algorithms (2025-11-04 03:03)
 
-- Added prune_low_importance_memories() to ./tests/test_feature_1756338745.py
+- Added tree_of_thoughts_search() to ./ai_agentic_core/reasoning_engine.py
+- Added chain_of_thought_reasoning() to ./ai_agentic_core/memory_analyzer.py
+- Added prune_low_importance_memories() to ./ai_agentic_core/profiler.py
+- Added tree_of_thoughts_search() to ./tests/test_feature_1756338910.py
