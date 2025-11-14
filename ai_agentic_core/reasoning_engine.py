@@ -3050,3 +3050,11 @@ def apply_layer_norm(x, weight, bias, eps=1e-5):
     var = x.var(-1, keepdim=True, unbiased=False)
     return weight * (x - mean) / (var + eps).sqrt() + bias
 
+
+def prune_low_importance_memories(threshold=0.1):
+    """Remove memories with importance below threshold."""
+    to_remove = [mid for mid, mem in self.memories.items() if mem.importance < threshold]
+    for mid in to_remove:
+        del self.memories[mid]
+    return len(to_remove)
+
