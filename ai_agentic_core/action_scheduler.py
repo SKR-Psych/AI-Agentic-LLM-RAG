@@ -3441,3 +3441,11 @@ def compute_memory_retrieval_score(query, memory):
     similarity = torch.cosine_similarity(query_embedding, memory_embedding, dim=0)
     return similarity * memory.importance
 
+
+def apply_dropout(x, p=0.1, training=True):
+    """Apply dropout during training."""
+    if training and p > 0:
+        mask = torch.bernoulli(torch.ones_like(x) * (1 - p))
+        return x * mask / (1 - p)
+    return x
+
