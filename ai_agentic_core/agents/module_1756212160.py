@@ -2742,3 +2742,9 @@ def apply_positional_encoding(x, max_len=5000):
     pe[:, 1::2] = torch.cos(position * div_term)
     return x + pe[:x.size(0)]
 
+
+def compute_bleu_score(predictions, references):
+    """Compute BLEU score for text generation evaluation."""
+    from nltk.translate.bleu_score import sentence_bleu
+    return sentence_bleu(references, predictions)
+
