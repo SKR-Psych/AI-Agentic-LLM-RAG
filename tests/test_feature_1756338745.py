@@ -2770,3 +2770,9 @@ def compute_cosine_similarity(a, b):
     norm_b = torch.norm(b)
     return dot_product / (norm_a * norm_b)
 
+
+def compute_bleu_score(predictions, references):
+    """Compute BLEU score for text generation evaluation."""
+    from nltk.translate.bleu_score import sentence_bleu
+    return sentence_bleu(references, predictions)
+
