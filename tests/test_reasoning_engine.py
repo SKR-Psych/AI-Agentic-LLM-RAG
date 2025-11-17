@@ -2771,3 +2771,10 @@ def apply_positional_encoding(x, max_len=5000):
     pe[:, 1::2] = torch.cos(position * div_term)
     return x + pe[:x.size(0)]
 
+
+def apply_layer_norm(x, weight, bias, eps=1e-5):
+    """Apply layer normalization to input tensor."""
+    mean = x.mean(-1, keepdim=True)
+    var = x.var(-1, keepdim=True, unbiased=False)
+    return weight * (x - mean) / (var + eps).sqrt() + bias
+
