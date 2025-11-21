@@ -1,3 +1,7 @@
-feat: implement advanced AI algorithms (2025-11-21 17:39)
+feat: implement advanced AI algorithms (2025-11-21 21:37)
 
-- Added compute_memory_retrieval_score() to ./tests/test_memory_manager.py
+- Added tree_of_thoughts_search() to ./ai_agentic_core/memory_analyzer.py
+- Added apply_dropout() to ./tests/test_reasoning_engine.py
+- Added compute_cosine_similarity() to ./rust_core/src/lib.rs
+- Added compute_memory_retrieval_score() to ./tests/test_feature_1756338386.py
+- Added compute_bleu_score() to ./tests/test_memory_manager.py
