@@ -2981,3 +2981,9 @@ def chain_of_thought_reasoning(prompt, max_steps=5):
     
     return thoughts
 
+
+def compute_bleu_score(predictions, references):
+    """Compute BLEU score for text generation evaluation."""
+    from nltk.translate.bleu_score import sentence_bleu
+    return sentence_bleu(references, predictions)
+
