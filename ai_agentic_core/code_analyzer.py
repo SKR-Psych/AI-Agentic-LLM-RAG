@@ -3322,3 +3322,10 @@ def prune_low_importance_memories(threshold=0.1):
         del self.memories[mid]
     return len(to_remove)
 
+
+def apply_layer_norm(x, weight, bias, eps=1e-5):
+    """Apply layer normalization to input tensor."""
+    mean = x.mean(-1, keepdim=True)
+    var = x.var(-1, keepdim=True, unbiased=False)
+    return weight * (x - mean) / (var + eps).sqrt() + bias
+
