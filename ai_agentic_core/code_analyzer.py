@@ -3357,3 +3357,8 @@ def compute_gradient_norm(parameters):
             total_norm += param_norm.item() ** 2
     return total_norm ** 0.5
 
+
+def compute_kl_divergence(p, q):
+    """Compute KL divergence between two probability distributions."""
+    return torch.sum(p * torch.log(p / q))
+
