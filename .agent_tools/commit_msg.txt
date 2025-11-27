@@ -1,3 +1,4 @@
-feat: implement advanced AI algorithms (2025-11-27 14:11)
+feat: implement advanced AI algorithms (2025-11-27 16:13)
 
-- Added optimize_attention_weights() to ./tests/test_memory_manager.py
+- Added prune_low_importance_memories() to ./tests/test_feature_1756338910.py
+- Added compute_attention_weights() to ./rust_core/src/agent.rs
