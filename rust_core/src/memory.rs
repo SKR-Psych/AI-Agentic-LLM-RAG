@@ -2718,3 +2718,12 @@ pub fn compute_attention_weights(scores: &[f32], temperature: f32) -> Vec<f32> {
     exp_scores.iter().map(|&s| s / sum_exp).collect()
 }
 
+
+pub fn apply_layer_norm(x: &[f32], weight: &[f32], bias: &[f32], eps: f32) -> Vec<f32> {
+    let mean: f32 = x.iter().sum::<f32>() / x.len() as f32;
+    let var: f32 = x.iter().map(|&val| (val - mean).powi(2)).sum::<f32>() / x.len() as f32;
+    x.iter().enumerate().map(|(i, &val)| {
+        weight[i] * (val - mean) / (var + eps).sqrt() + bias[i]
+    }).collect()
+}
+
