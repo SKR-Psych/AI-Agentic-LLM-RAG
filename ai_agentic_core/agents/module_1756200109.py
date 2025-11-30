@@ -3539,3 +3539,9 @@ def apply_dropout(x, p=0.1, training=True):
         return x * mask / (1 - p)
     return x
 
+
+def compute_bleu_score(predictions, references):
+    """Compute BLEU score for text generation evaluation."""
+    from nltk.translate.bleu_score import sentence_bleu
+    return sentence_bleu(references, predictions)
+
