@@ -3223,3 +3223,11 @@ def apply_layer_norm(x, weight, bias, eps=1e-5):
     var = x.var(-1, keepdim=True, unbiased=False)
     return weight * (x - mean) / (var + eps).sqrt() + bias
 
+
+def compute_cosine_similarity(a, b):
+    """Compute cosine similarity between two vectors."""
+    dot_product = torch.dot(a, b)
+    norm_a = torch.norm(a)
+    norm_b = torch.norm(b)
+    return dot_product / (norm_a * norm_b)
+
