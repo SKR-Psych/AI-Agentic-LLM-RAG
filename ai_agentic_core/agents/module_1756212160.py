@@ -3171,3 +3171,10 @@ def compute_bleu_score(predictions, references):
     from nltk.translate.bleu_score import sentence_bleu
     return sentence_bleu(references, predictions)
 
+
+def apply_layer_norm(x, weight, bias, eps=1e-5):
+    """Apply layer normalization to input tensor."""
+    mean = x.mean(-1, keepdim=True)
+    var = x.var(-1, keepdim=True, unbiased=False)
+    return weight * (x - mean) / (var + eps).sqrt() + bias
+
