@@ -3553,3 +3553,8 @@ def compute_kl_divergence(p, q):
     """Compute KL divergence between two probability distributions."""
     return torch.sum(p * torch.log(p / q))
 
+
+def compute_kl_divergence(p, q):
+    """Compute KL divergence between two probability distributions."""
+    return torch.sum(p * torch.log(p / q))
+
