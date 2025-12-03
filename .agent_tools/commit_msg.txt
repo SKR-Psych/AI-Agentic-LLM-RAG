@@ -1,6 +1,5 @@
-feat: implement advanced AI algorithms (2025-12-03 12:22)
+feat: implement advanced AI algorithms (2025-12-03 14:12)
 
-- Added tree_of_thoughts_search() to ./ai_agentic_core/action_scheduler.py
-- Added tree_of_thoughts_search() to ./ai_agentic_core/memory_manager.py
-- Added compute_cosine_similarity() to ./rust_core/src/lib.rs
-- Added apply_dropout() to ./ai_agentic_core/profiler.py
+- Added update_memory_importance() to ./tests/test_feature_1756338745.py
+- Added apply_dropout() to ./ai_agentic_core/action_scheduler.py
+- Added prune_low_importance_memories() to ./tests/test_memory_manager.py
