@@ -3326,3 +3326,11 @@ def compute_bleu_score(predictions, references):
     from nltk.translate.bleu_score import sentence_bleu
     return sentence_bleu(references, predictions)
 
+
+def prune_low_importance_memories(threshold=0.1):
+    """Remove memories with importance below threshold."""
+    to_remove = [mid for mid, mem in self.memories.items() if mem.importance < threshold]
+    for mid in to_remove:
+        del self.memories[mid]
+    return len(to_remove)
+
