@@ -3406,3 +3406,11 @@ def compute_gradient_norm(parameters):
             total_norm += param_norm.item() ** 2
     return total_norm ** 0.5
 
+
+def compute_cosine_similarity(a, b):
+    """Compute cosine similarity between two vectors."""
+    dot_product = torch.dot(a, b)
+    norm_a = torch.norm(a)
+    norm_b = torch.norm(b)
+    return dot_product / (norm_a * norm_b)
+
