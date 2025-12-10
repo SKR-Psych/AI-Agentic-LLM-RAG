@@ -1,5 +1,7 @@
-feat: implement advanced AI algorithms (2025-12-10 20:12)
+feat: implement advanced AI algorithms (2025-12-10 22:11)
 
-- Added compute_cosine_similarity() to ./rust_core/src/lib.rs
-- Added apply_dropout() to ./ai_agentic_core/agents/module_1756200109.py
-- Added chain_of_thought_reasoning() to ./ai_agentic_core/memory_manager.py
+- Added compute_cosine_similarity() to ./tests/test_feature_1756338910.py
+- Added chain_of_thought_reasoning() to ./tests/test_memory_manager.py
+- Added compute_attention_weights() to ./rust_core/src/agent.rs
+- Added prune_low_importance_memories() to ./ai_agentic_core/agents/module_1756212160.py
+- Added prune_low_importance_memories() to ./tests/test_feature_1756338386.py
