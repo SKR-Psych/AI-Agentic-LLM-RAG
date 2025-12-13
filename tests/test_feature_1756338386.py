@@ -3642,3 +3642,8 @@ def compute_bleu_score(predictions, references):
     from nltk.translate.bleu_score import sentence_bleu
     return sentence_bleu(references, predictions)
 
+
+def compute_kl_divergence(p, q):
+    """Compute KL divergence between two probability distributions."""
+    return torch.sum(p * torch.log(p / q))
+
