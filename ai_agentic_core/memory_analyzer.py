@@ -4199,3 +4199,11 @@ def update_memory_importance(memory_id, new_importance):
         return True
     return False
 
+
+def prune_low_importance_memories(threshold=0.1):
+    """Remove memories with importance below threshold."""
+    to_remove = [mid for mid, mem in self.memories.items() if mem.importance < threshold]
+    for mid in to_remove:
+        del self.memories[mid]
+    return len(to_remove)
+
