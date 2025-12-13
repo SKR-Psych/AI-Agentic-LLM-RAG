@@ -3598,3 +3598,9 @@ def apply_positional_encoding(x, max_len=5000):
     pe[:, 1::2] = torch.cos(position * div_term)
     return x + pe[:x.size(0)]
 
+
+def optimize_attention_weights(attention_scores, temperature=1.0):
+    """Optimize attention weights using temperature scaling."""
+    scaled_scores = attention_scores / temperature
+    return torch.softmax(scaled_scores, dim=-1)
+
