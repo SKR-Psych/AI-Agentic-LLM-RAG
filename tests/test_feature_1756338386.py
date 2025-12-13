@@ -3647,3 +3647,22 @@ def compute_kl_divergence(p, q):
     """Compute KL divergence between two probability distributions."""
     return torch.sum(p * torch.log(p / q))
 
+
+def chain_of_thought_reasoning(prompt, max_steps=5):
+    """Implement chain-of-thought reasoning."""
+    thoughts = []
+    current_thought = prompt
+    
+    for step in range(max_steps):
+        # Generate next thought
+        next_thought = self.generate_next_thought(current_thought)
+        thoughts.append(next_thought)
+        
+        # Check if we've reached a conclusion
+        if self.is_conclusion(next_thought):
+            break
+            
+        current_thought = next_thought
+    
+    return thoughts
+
