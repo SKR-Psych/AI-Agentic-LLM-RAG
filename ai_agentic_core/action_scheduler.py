@@ -4434,3 +4434,11 @@ def self_reflection_loop(initial_response, max_iterations=3):
     
     return current_response
 
+
+def apply_dropout(x, p=0.1, training=True):
+    """Apply dropout during training."""
+    if training and p > 0:
+        mask = torch.bernoulli(torch.ones_like(x) * (1 - p))
+        return x * mask / (1 - p)
+    return x
+
