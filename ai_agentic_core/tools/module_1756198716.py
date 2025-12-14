@@ -3436,3 +3436,9 @@ def self_reflection_loop(initial_response, max_iterations=3):
     
     return current_response
 
+
+def optimize_attention_weights(attention_scores, temperature=1.0):
+    """Optimize attention weights using temperature scaling."""
+    scaled_scores = attention_scores / temperature
+    return torch.softmax(scaled_scores, dim=-1)
+
