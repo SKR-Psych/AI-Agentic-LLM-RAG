@@ -3982,3 +3982,12 @@ def compute_memory_retrieval_score(query, memory):
     similarity = torch.cosine_similarity(query_embedding, memory_embedding, dim=0)
     return similarity * memory.importance
 
+
+def update_memory_importance(memory_id, new_importance):
+    """Update importance score of a memory item."""
+    if memory_id in self.memories:
+        self.memories[memory_id].importance = max(0.0, min(1.0, new_importance))
+        self.memories[memory_id].last_updated = time.time()
+        return True
+    return False
+

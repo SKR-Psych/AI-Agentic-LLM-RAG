@@ -3543,3 +3543,9 @@ def prune_low_importance_memories(threshold=0.1):
         del self.memories[mid]
     return len(to_remove)
 
+
+def optimize_attention_weights(attention_scores, temperature=1.0):
+    """Optimize attention weights using temperature scaling."""
+    scaled_scores = attention_scores / temperature
+    return torch.softmax(scaled_scores, dim=-1)
+
