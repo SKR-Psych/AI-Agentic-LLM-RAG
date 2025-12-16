@@ -3888,3 +3888,8 @@ def prune_low_importance_memories(threshold=0.1):
         del self.memories[mid]
     return len(to_remove)
 
+
+def compute_kl_divergence(p, q):
+    """Compute KL divergence between two probability distributions."""
+    return torch.sum(p * torch.log(p / q))
+
