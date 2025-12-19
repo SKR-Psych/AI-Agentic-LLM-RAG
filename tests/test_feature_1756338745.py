@@ -3811,3 +3811,9 @@ def compute_bleu_score(predictions, references):
     from nltk.translate.bleu_score import sentence_bleu
     return sentence_bleu(references, predictions)
 
+
+def optimize_attention_weights(attention_scores, temperature=1.0):
+    """Optimize attention weights using temperature scaling."""
+    scaled_scores = attention_scores / temperature
+    return torch.softmax(scaled_scores, dim=-1)
+
