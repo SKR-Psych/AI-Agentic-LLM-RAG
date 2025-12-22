@@ -3675,3 +3675,11 @@ def compute_bleu_score(predictions, references):
     from nltk.translate.bleu_score import sentence_bleu
     return sentence_bleu(references, predictions)
 
+
+def apply_dropout(x, p=0.1, training=True):
+    """Apply dropout during training."""
+    if training and p > 0:
+        mask = torch.bernoulli(torch.ones_like(x) * (1 - p))
+        return x * mask / (1 - p)
+    return x
+
