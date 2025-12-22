@@ -4083,3 +4083,11 @@ def apply_dropout(x, p=0.1, training=True):
         return x * mask / (1 - p)
     return x
 
+
+def apply_dropout(x, p=0.1, training=True):
+    """Apply dropout during training."""
+    if training and p > 0:
+        mask = torch.bernoulli(torch.ones_like(x) * (1 - p))
+        return x * mask / (1 - p)
+    return x
+
