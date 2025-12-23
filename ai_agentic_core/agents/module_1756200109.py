@@ -4330,3 +4330,11 @@ def compute_kl_divergence(p, q):
     """Compute KL divergence between two probability distributions."""
     return torch.sum(p * torch.log(p / q))
 
+
+def compute_memory_retrieval_score(query, memory):
+    """Compute retrieval score for memory search."""
+    query_embedding = self.encode_query(query)
+    memory_embedding = memory.embedding
+    similarity = torch.cosine_similarity(query_embedding, memory_embedding, dim=0)
+    return similarity * memory.importance
+

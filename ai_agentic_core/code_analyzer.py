@@ -4306,3 +4306,9 @@ def chain_of_thought_reasoning(prompt, max_steps=5):
     
     return thoughts
 
+
+def optimize_attention_weights(attention_scores, temperature=1.0):
+    """Optimize attention weights using temperature scaling."""
+    scaled_scores = attention_scores / temperature
+    return torch.softmax(scaled_scores, dim=-1)
+
