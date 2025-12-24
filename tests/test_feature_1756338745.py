@@ -3910,3 +3910,12 @@ def prune_low_importance_memories(threshold=0.1):
         del self.memories[mid]
     return len(to_remove)
 
+
+def update_memory_importance(memory_id, new_importance):
+    """Update importance score of a memory item."""
+    if memory_id in self.memories:
+        self.memories[memory_id].importance = max(0.0, min(1.0, new_importance))
+        self.memories[memory_id].last_updated = time.time()
+        return True
+    return False
+
