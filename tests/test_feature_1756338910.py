@@ -4074,3 +4074,11 @@ def apply_layer_norm(x, weight, bias, eps=1e-5):
     var = x.var(-1, keepdim=True, unbiased=False)
     return weight * (x - mean) / (var + eps).sqrt() + bias
 
+
+def apply_dropout(x, p=0.1, training=True):
+    """Apply dropout during training."""
+    if training and p > 0:
+        mask = torch.bernoulli(torch.ones_like(x) * (1 - p))
+        return x * mask / (1 - p)
+    return x
+
