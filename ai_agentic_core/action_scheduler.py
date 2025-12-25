@@ -4838,3 +4838,9 @@ def compute_kl_divergence(p, q):
     """Compute KL divergence between two probability distributions."""
     return torch.sum(p * torch.log(p / q))
 
+
+def optimize_attention_weights(attention_scores, temperature=1.0):
+    """Optimize attention weights using temperature scaling."""
+    scaled_scores = attention_scores / temperature
+    return torch.softmax(scaled_scores, dim=-1)
+
