@@ -4447,3 +4447,9 @@ def optimize_attention_weights(attention_scores, temperature=1.0):
     scaled_scores = attention_scores / temperature
     return torch.softmax(scaled_scores, dim=-1)
 
+
+def optimize_attention_weights(attention_scores, temperature=1.0):
+    """Optimize attention weights using temperature scaling."""
+    scaled_scores = attention_scores / temperature
+    return torch.softmax(scaled_scores, dim=-1)
+
