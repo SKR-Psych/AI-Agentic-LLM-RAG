@@ -3798,3 +3798,9 @@ def compute_gradient_norm(parameters):
             total_norm += param_norm.item() ** 2
     return total_norm ** 0.5
 
+
+def compute_bleu_score(predictions, references):
+    """Compute BLEU score for text generation evaluation."""
+    from nltk.translate.bleu_score import sentence_bleu
+    return sentence_bleu(references, predictions)
+
