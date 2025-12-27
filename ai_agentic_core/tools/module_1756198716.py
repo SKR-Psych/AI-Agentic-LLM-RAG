@@ -3843,3 +3843,11 @@ def compute_gradient_norm(parameters):
             total_norm += param_norm.item() ** 2
     return total_norm ** 0.5
 
+
+def apply_dropout(x, p=0.1, training=True):
+    """Apply dropout during training."""
+    if training and p > 0:
+        mask = torch.bernoulli(torch.ones_like(x) * (1 - p))
+        return x * mask / (1 - p)
+    return x
+
