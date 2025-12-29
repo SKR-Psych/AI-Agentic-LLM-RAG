@@ -3692,3 +3692,11 @@ pub fn apply_layer_norm(x: &[f32], weight: &[f32], bias: &[f32], eps: f32) -> Ve
     }).collect()
 }
 
+
+pub fn compute_cosine_similarity(a: &[f32], b: &[f32]) -> f32 {
+    let dot_product: f32 = a.iter().zip(b.iter()).map(|(&x, &y)| x * y).sum();
+    let norm_a: f32 = a.iter().map(|&x| x * x).sum::<f32>().sqrt();
+    let norm_b: f32 = b.iter().map(|&x| x * x).sum::<f32>().sqrt();
+    dot_product / (norm_a * norm_b)
+}
+
