@@ -4630,3 +4630,9 @@ def compute_memory_retrieval_score(query, memory):
     similarity = torch.cosine_similarity(query_embedding, memory_embedding, dim=0)
     return similarity * memory.importance
 
+
+def compute_bleu_score(predictions, references):
+    """Compute BLEU score for text generation evaluation."""
+    from nltk.translate.bleu_score import sentence_bleu
+    return sentence_bleu(references, predictions)
+
