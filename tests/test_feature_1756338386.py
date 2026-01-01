@@ -4200,3 +4200,8 @@ def apply_positional_encoding(x, max_len=5000):
     pe[:, 1::2] = torch.cos(position * div_term)
     return x + pe[:x.size(0)]
 
+
+def compute_kl_divergence(p, q):
+    """Compute KL divergence between two probability distributions."""
+    return torch.sum(p * torch.log(p / q))
+
