@@ -4562,3 +4562,8 @@ def compute_cosine_similarity(a, b):
     norm_b = torch.norm(b)
     return dot_product / (norm_a * norm_b)
 
+
+def compute_kl_divergence(p, q):
+    """Compute KL divergence between two probability distributions."""
+    return torch.sum(p * torch.log(p / q))
+
