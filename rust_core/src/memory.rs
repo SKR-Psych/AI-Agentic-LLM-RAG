@@ -3712,3 +3712,12 @@ pub fn compute_attention_weights(scores: &[f32], temperature: f32) -> Vec<f32> {
     exp_scores.iter().map(|&s| s / sum_exp).collect()
 }
 
+
+pub fn compute_attention_weights(scores: &[f32], temperature: f32) -> Vec<f32> {
+    let scaled_scores: Vec<f32> = scores.iter().map(|&s| s / temperature).collect();
+    let max_score = scaled_scores.iter().fold(f32::NEG_INFINITY, |a, &b| a.max(b));
+    let exp_scores: Vec<f32> = scores.iter().map(|&s| (s - max_score).exp()).collect();
+    let sum_exp = exp_scores.iter().sum::<f32>();
+    exp_scores.iter().map(|&s| s / sum_exp).collect()
+}
+
