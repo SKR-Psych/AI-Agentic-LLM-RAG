@@ -4044,3 +4044,9 @@ def prune_low_importance_memories(threshold=0.1):
         del self.memories[mid]
     return len(to_remove)
 
+
+def compute_bleu_score(predictions, references):
+    """Compute BLEU score for text generation evaluation."""
+    from nltk.translate.bleu_score import sentence_bleu
+    return sentence_bleu(references, predictions)
+
