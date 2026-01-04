@@ -1,6 +1,6 @@
-feat: implement advanced AI algorithms (2026-01-04 21:38)
+feat: implement advanced AI algorithms (2026-01-04 22:10)
 
-- Added apply_dropout() to ./tests/test_feature_1756338910.py
-- Added prune_low_importance_memories() to ./ai_agentic_core/memory_manager.py
-- Added compute_memory_retrieval_score() to ./ai_agentic_core/memory_analyzer.py
-- Added apply_layer_norm() to ./tests/test_memory_manager.py
+- Added update_memory_importance() to ./tests/test_feature_1756338910.py
+- Added compute_memory_retrieval_score() to ./tests/test_memory_manager.py
+- Added prune_low_importance_memories() to ./ai_agentic_core/agents/module_1756212160.py
+- Added compute_cosine_similarity() to ./rust_core/src/agent.rs
