@@ -4607,3 +4607,9 @@ def apply_layer_norm(x, weight, bias, eps=1e-5):
     var = x.var(-1, keepdim=True, unbiased=False)
     return weight * (x - mean) / (var + eps).sqrt() + bias
 
+
+def optimize_attention_weights(attention_scores, temperature=1.0):
+    """Optimize attention weights using temperature scaling."""
+    scaled_scores = attention_scores / temperature
+    return torch.softmax(scaled_scores, dim=-1)
+
