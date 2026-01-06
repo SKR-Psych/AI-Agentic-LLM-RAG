@@ -4793,3 +4793,12 @@ def tree_of_thoughts_search(initial_state, max_depth=3):
     
     return best_path, best_score
 
+
+def update_memory_importance(memory_id, new_importance):
+    """Update importance score of a memory item."""
+    if memory_id in self.memories:
+        self.memories[memory_id].importance = max(0.0, min(1.0, new_importance))
+        self.memories[memory_id].last_updated = time.time()
+        return True
+    return False
+
