@@ -4335,3 +4335,8 @@ def chain_of_thought_reasoning(prompt, max_steps=5):
     
     return thoughts
 
+
+def compute_kl_divergence(p, q):
+    """Compute KL divergence between two probability distributions."""
+    return torch.sum(p * torch.log(p / q))
+

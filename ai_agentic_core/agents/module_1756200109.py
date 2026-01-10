@@ -4948,3 +4948,9 @@ def tree_of_thoughts_search(initial_state, max_depth=3):
     
     return best_path, best_score
 
+
+def compute_bleu_score(predictions, references):
+    """Compute BLEU score for text generation evaluation."""
+    from nltk.translate.bleu_score import sentence_bleu
+    return sentence_bleu(references, predictions)
+
