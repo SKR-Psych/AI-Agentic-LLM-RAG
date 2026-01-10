@@ -5040,3 +5040,11 @@ def tree_of_thoughts_search(initial_state, max_depth=3):
     
     return best_path, best_score
 
+
+def compute_memory_retrieval_score(query, memory):
+    """Compute retrieval score for memory search."""
+    query_embedding = self.encode_query(query)
+    memory_embedding = memory.embedding
+    similarity = torch.cosine_similarity(query_embedding, memory_embedding, dim=0)
+    return similarity * memory.importance
+
