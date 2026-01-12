@@ -4373,3 +4373,8 @@ def update_memory_importance(memory_id, new_importance):
         return True
     return False
 
+
+def compute_kl_divergence(p, q):
+    """Compute KL divergence between two probability distributions."""
+    return torch.sum(p * torch.log(p / q))
+
