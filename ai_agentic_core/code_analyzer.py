@@ -5080,3 +5080,9 @@ def update_memory_importance(memory_id, new_importance):
         return True
     return False
 
+
+def compute_bleu_score(predictions, references):
+    """Compute BLEU score for text generation evaluation."""
+    from nltk.translate.bleu_score import sentence_bleu
+    return sentence_bleu(references, predictions)
+
