@@ -4412,3 +4412,12 @@ def apply_layer_norm(x, weight, bias, eps=1e-5):
     var = x.var(-1, keepdim=True, unbiased=False)
     return weight * (x - mean) / (var + eps).sqrt() + bias
 
+
+def update_memory_importance(memory_id, new_importance):
+    """Update importance score of a memory item."""
+    if memory_id in self.memories:
+        self.memories[memory_id].importance = max(0.0, min(1.0, new_importance))
+        self.memories[memory_id].last_updated = time.time()
+        return True
+    return False
+
