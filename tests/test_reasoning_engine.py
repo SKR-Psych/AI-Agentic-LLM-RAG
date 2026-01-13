@@ -4439,3 +4439,11 @@ def apply_positional_encoding(x, max_len=5000):
     pe[:, 1::2] = torch.cos(position * div_term)
     return x + pe[:x.size(0)]
 
+
+def compute_cosine_similarity(a, b):
+    """Compute cosine similarity between two vectors."""
+    dot_product = torch.dot(a, b)
+    norm_a = torch.norm(a)
+    norm_b = torch.norm(b)
+    return dot_product / (norm_a * norm_b)
+
