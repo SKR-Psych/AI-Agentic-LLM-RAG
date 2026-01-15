@@ -4472,3 +4472,9 @@ def compute_bleu_score(predictions, references):
     from nltk.translate.bleu_score import sentence_bleu
     return sentence_bleu(references, predictions)
 
+
+def compute_bleu_score(predictions, references):
+    """Compute BLEU score for text generation evaluation."""
+    from nltk.translate.bleu_score import sentence_bleu
+    return sentence_bleu(references, predictions)
+
