@@ -4700,3 +4700,8 @@ def self_reflection_loop(initial_response, max_iterations=3):
     
     return current_response
 
+
+def compute_kl_divergence(p, q):
+    """Compute KL divergence between two probability distributions."""
+    return torch.sum(p * torch.log(p / q))
+
