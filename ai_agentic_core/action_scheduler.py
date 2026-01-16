@@ -5943,3 +5943,13 @@ def tree_of_thoughts_search(initial_state, max_depth=3):
     
     return best_path, best_score
 
+
+def apply_positional_encoding(x, max_len=5000):
+    """Apply sinusoidal positional encoding to input."""
+    pe = torch.zeros(max_len, x.size(-1))
+    position = torch.arange(0, max_len).unsqueeze(1).float()
+    div_term = torch.exp(torch.arange(0, x.size(-1), 2).float() * -(math.log(10000.0) / x.size(-1)))
+    pe[:, 0::2] = torch.sin(position * div_term)
+    pe[:, 1::2] = torch.cos(position * div_term)
+    return x + pe[:x.size(0)]
+
