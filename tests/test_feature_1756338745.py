@@ -4800,3 +4800,13 @@ def optimize_attention_weights(attention_scores, temperature=1.0):
     scaled_scores = attention_scores / temperature
     return torch.softmax(scaled_scores, dim=-1)
 
+
+def compute_gradient_norm(parameters):
+    """Compute L2 norm of gradients for gradient clipping."""
+    total_norm = 0.0
+    for p in parameters:
+        if p.grad is not None:
+            param_norm = p.grad.data.norm(2)
+            total_norm += param_norm.item() ** 2
+    return total_norm ** 0.5
+
