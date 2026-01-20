@@ -1,3 +1,4 @@
-feat: implement advanced AI algorithms (2026-01-20 14:21)
+feat: implement advanced AI algorithms (2026-01-20 17:53)
 
-- Added compute_memory_retrieval_score() to ./ai_agentic_core/reasoning_engine.py
+- Added compute_attention_weights() to ./rust_core/src/lib.rs
+- Added update_memory_importance() to ./tests/test_reasoning_engine.py
