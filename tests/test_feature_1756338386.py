@@ -4847,3 +4847,11 @@ def compute_memory_retrieval_score(query, memory):
     similarity = torch.cosine_similarity(query_embedding, memory_embedding, dim=0)
     return similarity * memory.importance
 
+
+def prune_low_importance_memories(threshold=0.1):
+    """Remove memories with importance below threshold."""
+    to_remove = [mid for mid, mem in self.memories.items() if mem.importance < threshold]
+    for mid in to_remove:
+        del self.memories[mid]
+    return len(to_remove)
+
