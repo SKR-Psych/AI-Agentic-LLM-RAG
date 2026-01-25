@@ -4787,3 +4787,11 @@ def compute_cosine_similarity(a, b):
     norm_b = torch.norm(b)
     return dot_product / (norm_a * norm_b)
 
+
+def compute_cosine_similarity(a, b):
+    """Compute cosine similarity between two vectors."""
+    dot_product = torch.dot(a, b)
+    norm_a = torch.norm(a)
+    norm_b = torch.norm(b)
+    return dot_product / (norm_a * norm_b)
+
