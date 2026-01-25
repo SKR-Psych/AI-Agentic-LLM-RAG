@@ -4891,3 +4891,11 @@ def apply_positional_encoding(x, max_len=5000):
     pe[:, 1::2] = torch.cos(position * div_term)
     return x + pe[:x.size(0)]
 
+
+def prune_low_importance_memories(threshold=0.1):
+    """Remove memories with importance below threshold."""
+    to_remove = [mid for mid, mem in self.memories.items() if mem.importance < threshold]
+    for mid in to_remove:
+        del self.memories[mid]
+    return len(to_remove)
+
