@@ -5574,3 +5574,9 @@ def self_reflection_loop(initial_response, max_iterations=3):
     
     return current_response
 
+
+def compute_bleu_score(predictions, references):
+    """Compute BLEU score for text generation evaluation."""
+    from nltk.translate.bleu_score import sentence_bleu
+    return sentence_bleu(references, predictions)
+
