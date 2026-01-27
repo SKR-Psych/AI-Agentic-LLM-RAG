@@ -4430,3 +4430,11 @@ pub fn compute_attention_weights(scores: &[f32], temperature: f32) -> Vec<f32> {
     exp_scores.iter().map(|&s| s / sum_exp).collect()
 }
 
+
+pub fn compute_cosine_similarity(a: &[f32], b: &[f32]) -> f32 {
+    let dot_product: f32 = a.iter().zip(b.iter()).map(|(&x, &y)| x * y).sum();
+    let norm_a: f32 = a.iter().map(|&x| x * x).sum::<f32>().sqrt();
+    let norm_b: f32 = b.iter().map(|&x| x * x).sum::<f32>().sqrt();
+    dot_product / (norm_a * norm_b)
+}
+
