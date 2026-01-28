@@ -5767,3 +5767,8 @@ def compute_memory_retrieval_score(query, memory):
     similarity = torch.cosine_similarity(query_embedding, memory_embedding, dim=0)
     return similarity * memory.importance
 
+
+def compute_kl_divergence(p, q):
+    """Compute KL divergence between two probability distributions."""
+    return torch.sum(p * torch.log(p / q))
+
