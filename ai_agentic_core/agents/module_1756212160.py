@@ -5489,3 +5489,11 @@ def tree_of_thoughts_search(initial_state, max_depth=3):
     
     return best_path, best_score
 
+
+def compute_cosine_similarity(a, b):
+    """Compute cosine similarity between two vectors."""
+    dot_product = torch.dot(a, b)
+    norm_a = torch.norm(a)
+    norm_b = torch.norm(b)
+    return dot_product / (norm_a * norm_b)
+
