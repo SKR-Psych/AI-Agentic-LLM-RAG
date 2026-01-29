@@ -5020,3 +5020,13 @@ def compute_gradient_norm(parameters):
             total_norm += param_norm.item() ** 2
     return total_norm ** 0.5
 
+
+def apply_positional_encoding(x, max_len=5000):
+    """Apply sinusoidal positional encoding to input."""
+    pe = torch.zeros(max_len, x.size(-1))
+    position = torch.arange(0, max_len).unsqueeze(1).float()
+    div_term = torch.exp(torch.arange(0, x.size(-1), 2).float() * -(math.log(10000.0) / x.size(-1)))
+    pe[:, 0::2] = torch.sin(position * div_term)
+    pe[:, 1::2] = torch.cos(position * div_term)
+    return x + pe[:x.size(0)]
+
