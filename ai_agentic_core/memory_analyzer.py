@@ -5772,3 +5772,11 @@ def compute_kl_divergence(p, q):
     """Compute KL divergence between two probability distributions."""
     return torch.sum(p * torch.log(p / q))
 
+
+def apply_dropout(x, p=0.1, training=True):
+    """Apply dropout during training."""
+    if training and p > 0:
+        mask = torch.bernoulli(torch.ones_like(x) * (1 - p))
+        return x * mask / (1 - p)
+    return x
+
