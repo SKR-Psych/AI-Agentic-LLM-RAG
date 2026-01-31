@@ -5624,3 +5624,11 @@ def compute_cosine_similarity(a, b):
     norm_b = torch.norm(b)
     return dot_product / (norm_a * norm_b)
 
+
+def compute_memory_retrieval_score(query, memory):
+    """Compute retrieval score for memory search."""
+    query_embedding = self.encode_query(query)
+    memory_embedding = memory.embedding
+    similarity = torch.cosine_similarity(query_embedding, memory_embedding, dim=0)
+    return similarity * memory.importance
+
