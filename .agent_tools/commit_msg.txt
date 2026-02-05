@@ -1,5 +1,5 @@
-feat: implement advanced AI algorithms (2026-02-04 22:15)
+feat: implement advanced AI algorithms (2026-02-05 01:06)
 
-- Added compute_memory_retrieval_score() to ./ai_agentic_core/__init__.py
-- Added update_memory_importance() to ./tests/test_reasoning_engine.py
-- Added compute_memory_retrieval_score() to ./tests/test_feature_1756338745.py
+- Added chain_of_thought_reasoning() to ./ai_agentic_core/__init__.py
+- Added tree_of_thoughts_search() to ./ai_agentic_core/action_scheduler.py
+- Added prune_low_importance_memories() to ./tests/test_memory_manager.py
