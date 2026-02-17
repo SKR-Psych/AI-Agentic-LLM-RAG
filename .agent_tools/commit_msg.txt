@@ -1,3 +1,8 @@
-feat: implement advanced AI algorithms (2026-02-17 03:58)
+feat: implement advanced AI algorithms (2026-02-17 04:08)
 
+- Added tree_of_thoughts_search() to ./ai_agentic_core/memory_analyzer.py
+- Added compute_bleu_score() to ./ai_agentic_core/memory_manager.py
+- Added update_memory_importance() to ./ai_agentic_core/tools/module_1756198716.py
+- Added compute_attention_weights() to ./rust_core/src/lib.rs
+- Added optimize_attention_weights() to ./ai_agentic_core/__init__.py
 - Added update_memory_importance() to ./tests/test_memory_manager.py
