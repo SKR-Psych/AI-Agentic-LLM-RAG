@@ -1,5 +1,8 @@
-feat: implement advanced AI algorithms (2026-02-18 18:06)
+feat: implement advanced AI algorithms (2026-02-18 18:37)
 
-- Added chain_of_thought_reasoning() to ./tests/test_memory_manager.py
-- Added tree_of_thoughts_search() to ./ai_agentic_core/code_analyzer.py
-- Added prune_low_importance_memories() to ./ai_agentic_core/profiler.py
+- Added compute_cosine_similarity() to ./rust_core/src/agent.rs
+- Added compute_memory_retrieval_score() to ./tests/test_memory_manager.py
+- Added update_memory_importance() to ./tests/test_feature_1756338910.py
+- Added chain_of_thought_reasoning() to ./ai_agentic_core/code_analyzer.py
+- Added compute_cosine_similarity() to ./rust_core/src/memory.rs
+- Added compute_memory_retrieval_score() to ./tests/test_reasoning_engine.py
