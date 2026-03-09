@@ -1,4 +1,9 @@
-feat: implement advanced AI algorithms (2026-03-09 10:11)
+feat: implement advanced AI algorithms (2026-03-09 10:34)
 
-- Added update_memory_importance() to ./tests/test_feature_1756338386.py
-- Added apply_layer_norm() to ./tests/test_memory_manager.py
+- Added chain_of_thought_reasoning() to ./ai_agentic_core/reasoning_engine.py
+- Added prune_low_importance_memories() to ./ai_agentic_core/profiler.py
+- Added update_memory_importance() to ./tests/test_memory_manager.py
+- Added tree_of_thoughts_search() to ./tests/test_feature_1756338745.py
+- Added tree_of_thoughts_search() to ./tests/test_feature_1756338386.py
+- Added optimize_attention_weights() to ./ai_agentic_core/__init__.py
+- Added apply_layer_norm() to ./rust_core/src/agent.rs
