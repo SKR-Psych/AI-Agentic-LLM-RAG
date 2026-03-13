@@ -1,5 +1,4 @@
-feat: implement advanced AI algorithms (2026-03-13 14:34)
+feat: implement advanced AI algorithms (2026-03-13 17:58)
 
-- Added update_memory_importance() to ./ai_agentic_core/reasoning_engine.py
-- Added compute_cosine_similarity() to ./rust_core/src/memory.rs
-- Added apply_dropout() to ./tests/test_reasoning_engine.py
+- Added compute_attention_weights() to ./rust_core/src/memory.rs
+- Added apply_dropout() to ./tests/test_memory_manager.py
