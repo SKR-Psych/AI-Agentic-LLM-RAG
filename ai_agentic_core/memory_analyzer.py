@@ -7563,3 +7563,11 @@ def chain_of_thought_reasoning(prompt, max_steps=5):
     
     return thoughts
 
+
+def apply_dropout(x, p=0.1, training=True):
+    """Apply dropout during training."""
+    if training and p > 0:
+        mask = torch.bernoulli(torch.ones_like(x) * (1 - p))
+        return x * mask / (1 - p)
+    return x
+
