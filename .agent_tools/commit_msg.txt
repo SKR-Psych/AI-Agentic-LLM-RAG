@@ -1,4 +1,4 @@
-feat: implement advanced AI algorithms (2026-05-04 13:19)
+feat: implement advanced AI algorithms (2026-05-04 15:28)
 
-- Added compute_memory_retrieval_score() to ./tests/test_memory_manager.py
-- Added compute_cosine_similarity() to ./rust_core/src/memory.rs
+- Added update_memory_importance() to ./ai_agentic_core/profiler.py
+- Added tree_of_thoughts_search() to ./ai_agentic_core/memory_manager.py
